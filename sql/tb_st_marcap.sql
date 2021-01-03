@@ -1,8 +1,8 @@
--- Table: public.tb_marcap_stock
+-- Table: public.tb_st_marcap
 
--- DROP TABLE public.tb_marcap_stock;
+-- DROP TABLE public.tb_st_marcap;
 
-CREATE TABLE public.tb_marcap_stock
+CREATE TABLE public.tb_st_marcap
 (
     stock_dt character varying(255) COLLATE pg_catalog."default" NOT NULL,
     stock_cd character varying(255) COLLATE pg_catalog."default" NOT NULL,
@@ -10,13 +10,13 @@ CREATE TABLE public.tb_marcap_stock
     changes_rt double precision,
     cls_amt integer,
     crt_dtm timestamp without time zone NOT NULL,
-    frgn_cnt bigint,
+    frgn_cnt double precision,
     frgn_rt double precision,
     high_amt integer,
     low_amt integer,
     rnk integer,
     start_amt integer,
-    stock_cnt bigint,
+    stock_cnt double precision,
     stock_nm character varying(45) COLLATE pg_catalog."default",
     total_mrkt_amt bigint,
     total_mrkt_amt_rt double precision,
@@ -26,15 +26,7 @@ CREATE TABLE public.tb_marcap_stock
     CONSTRAINT tb_marcap_stock_pkey PRIMARY KEY (stock_dt, stock_cd)
 )
 
-TABLESPACE ts_stock_data;
+TABLESPACE pg_default;
 
-ALTER TABLE public.tb_marcap_stock
+ALTER TABLE public.tb_st_marcap
     OWNER to postgres;
--- Index: unique_tb_marcap_stock_stock_cd_stockdt
-
--- DROP INDEX public.unique_tb_marcap_stock_stock_cd_stockdt;
-
-CREATE INDEX unique_tb_marcap_stock_stock_cd_stockdt
-    ON public.tb_marcap_stock USING btree
-    (stock_dt COLLATE pg_catalog."default" ASC NULLS LAST, stock_cd COLLATE pg_catalog."default" ASC NULLS LAST)
-    TABLESPACE ts_stock_data;

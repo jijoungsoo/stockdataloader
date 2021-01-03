@@ -2,7 +2,7 @@
 
 -- DROP PROCEDURE public.insert_tb_marcap_stock(character varying, character varying, integer, integer, double precision, bigint, bigint, integer, integer, integer, bigint, double precision, bigint, bigint, double precision, integer, character varying);
 
-CREATE OR REPLACE PROCEDURE public.insert_tb_marcap_stock(
+CREATE OR REPLACE PROCEDURE public.insert_tb_st_marcapk(
 	p_stock_cd character varying,
 	p_stock_nm character varying,
 	p_cls_amt integer,
@@ -26,7 +26,7 @@ AS $BODY$
 declare
 begin
   ---tb_stock 입력
-  insert into tb_marcap_stock
+  insert into tb_st_marcap
   		(
             stock_cd,
             stock_dt,
